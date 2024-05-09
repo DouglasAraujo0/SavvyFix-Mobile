@@ -1,7 +1,28 @@
 import React from "react"
 import { View, Text, Image, StyleSheet, Button } from "react-native"
+import { useState } from 'react';
+import { createUserWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../services/FirebaseConfig';
 
 export default function Cadastro() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    
+    function cadastrar () {
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          // ...
+          console.log(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+        console.log(errorMessage)
+      });
+      }
 
     return (
         <View>
