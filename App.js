@@ -9,7 +9,7 @@ export default function App() {
           source={require('./assets/github.png')}
           style={styles.logo}           
         />
-        <View style={styles.rightImagesContainer}>
+        <View style={styles.HeaderImagesContainer}>
           <Image
             source={require('./assets/instagram.png')}
             style={styles.rightImage}           
@@ -28,7 +28,6 @@ export default function App() {
       <View style={styles.aboutContainer}>
         <Text style={styles.aboutText}>Sobre a SavvyFix</Text>
       </View>
-
 
       <View style={styles.optionContainer}>
         <Image
@@ -55,19 +54,23 @@ export default function App() {
       </View>
 
       <View style={styles.footer}>
-        <Text>2TDSPF</Text>
-        <Image
-          source={require('./assets/github.png')}
-          style={styles.image}            
-        />
-        <Image 
-          source={require('./assets/instagram.png')}
-           style={styles.image}            
-        />
-        <Image
-          source={require('./assets/twitter.png')}
-           style={styles.image}            
-        />
+        <View style={styles.textContainer}>
+          <Text style={styles.turmapf}>2TDSPF</Text>
+        </View>
+        <View style={styles.rightImagesContainer}>
+          <Image
+            source={require('./assets/github.png')}
+            style={styles.image}            
+          />
+          <Image 
+            source={require('./assets/instagram.png')}
+            style={styles.image}            
+          />
+          <Image
+            source={require('./assets/twitter.png')}
+            style={styles.image}            
+          />
+        </View>
       </View>
     </View>
   );
@@ -98,13 +101,21 @@ const styles = StyleSheet.create({
   footer: {
     position: 'absolute',
     bottom: 0,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: 'green',
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 20,
+  },
+  turmapf: {
+    fontSize: 20,
+    color: 'white', 
+    textAlign: 'center',
+  },
+  textContainer: {
+    marginBottom: 10, // Adiciona espaço entre o texto e as imagens
   },
   logo: {
     width: 50,
@@ -112,8 +123,18 @@ const styles = StyleSheet.create({
     borderRadius: 100 / 2,
     marginRight: 20, // Adiciona espaço entre a logo e as outras imagens
   },
+  HeaderImagesContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center', // Espaçamento entre as imagens
+    alignItems: 'center', // Centraliza as imagens verticalmente
+    width: '100%',
+    paddingRight: 20, // Adiciona espaço à direita
+  },
   rightImagesContainer: {
     flexDirection: 'row',
+    justifyContent: 'space-between', // Espaçamento entre as imagens
+    alignItems: 'center', // Centraliza as imagens verticalmente
+    width: '100%',
   },
   rightImage: {
     width: 50,
