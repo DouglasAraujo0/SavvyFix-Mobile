@@ -6,19 +6,19 @@ export default function Sobre() {
         <View>
             <View>
                 <Image
-                    source={require('../assets/github.png')}
+                    source={require('../../assets/github.png')}
                     // style={styles.logo}            
                     />
                 <Image
-                    source={require('../assets/instagram.png')}
+                    source={require('../../assets/instagram.png')}
                     // style={styles.logo}            
                 />
                 <Image
-                    source={require('../assets/twitter.png')}
+                    source={require('../../assets/twitter.png')}
                     // style={styles.logo}            
                 />
                 <Image
-                    source={require('../assets/twitter.png')}
+                    source={require('../../assets/twitter.png')}
                     // style={styles.logo}            
                 />
         </View>
@@ -33,7 +33,7 @@ export default function Sobre() {
 
         <View>
             <Image
-                source={require('../assets/twitter.png')}
+                source={require('../../assets/twitter.png')}
                 // style={styles.logo}            
             />
             <Text>Mas não se engane! Esse site de tênis é totalmente fictício e tem o objetivo apenas de demonstrar a solução da SavvyFix na prática.</Text>
@@ -46,7 +46,7 @@ export default function Sobre() {
         <View>
             <Text>Isso por meio:</Text>
             <Image
-                source={require('../assets/twitter.png')}
+                source={require('../../assets/twitter.png')}
                 // style={styles.logo}            
             />
             <Text>do horário de compra pelo cliente</Text>
@@ -63,15 +63,15 @@ export default function Sobre() {
         <View>
             <Text>2TDSPF</Text>
             <Image
-                source={require('../assets/github.png')}
+                source={require('../../assets/github.png')}
                 // style={styles.logo}            
             />
             <Image
-                source={require('../assets/instagram.png')}
+                source={require('../../assets/instagram.png')}
                 // style={styles.logo}            
             />
             <Image
-                source={require('../assets/twitter.png')}
+                source={require('../../assets/twitter.png')}
                 // style={styles.logo}            
             />
         </View>

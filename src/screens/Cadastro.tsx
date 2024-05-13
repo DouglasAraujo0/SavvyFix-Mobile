@@ -26,12 +26,6 @@ export default function Cadastro() {
 
     return (
         <View>
-            <View>
-                <Image
-                    source={require('../assets/logo.png')}
-                    //style={styles.logo}            
-                />
-            </View>
 
             <View>
                 <Text>CADASTRO</Text>
@@ -53,22 +47,6 @@ export default function Cadastro() {
                     onPress={() => alert('Cadastrado com sucesso!')}
                 />
                 <Text>Entre aqui</Text>
-            </View>
-
-            <View>
-                <Text>2TDSPF</Text>
-                <Image
-                    source={require('../assets/github.png')}
-                    //style={styles.logo}            
-                />
-                <Image
-                    source={require('../assets/instagram.png')}
-                    //style={styles.logo}            
-                />
-                <Image
-                    source={require('../assets/twitter.png')}
-                    //style={styles.logo}            
-                />
             </View>
         </View>
     )
