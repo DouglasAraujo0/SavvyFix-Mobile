@@ -11,7 +11,7 @@ export default function Cadastro() {
     const login = () => {
         navigation.navigate('Login');
     };
-    
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -29,28 +29,24 @@ export default function Cadastro() {
     function cadastrar() {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
-                // ...
                 console.log(user)
             })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
-                // ..
                 console.log(errorMessage)
             });
     }
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scrollViewContainer}>
             <View style={styles.container}>
-                <HeaderLoginCadastro/>
+                <HeaderLoginCadastro />
                 <View style={styles.formContainer}>
                     <View style={styles.textContainer}>
                         <Text style={styles.title}>CADASTRO</Text>
                     </View>
-
+                    
                     <View style={styles.inputContainer}>
                         <Text style={styles.inputLabel}>Nome Completo</Text>
                         <TextInput
@@ -121,33 +117,40 @@ export default function Cadastro() {
                             <Text style={styles.signupButtonText}>Cadastrar</Text>
                         </TouchableOpacity>
                     </View>
-
-                    <TouchableOpacity onPress={login} style={styles.finalButton}>
-                        <Text style={styles.signupText}>Entre aqui</Text>
-                    </TouchableOpacity>
                 </View>
+                <TouchableOpacity onPress={login} style={styles.finalButton}>
+                    <Text style={styles.signupText}>Entre aqui</Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
+    scrollViewContainer: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingBottom: 100,
+    },
     container: {
         paddingTop: 30,
         alignItems: 'center',
         justifyContent: 'center',
+        flex: 1,
+        width: '100%',
     },
     formContainer: {
         width: '80%',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingBottom: 20,
     },
     textContainer: {
         marginBottom: 20,
         backgroundColor: 'gray',
         borderRadius: 10,
         padding: 7,
-        paddingTop: 7,
         width: '60%',
         alignItems: 'center',
     },
@@ -175,17 +178,23 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         width: '100%',
     },
-    signupButtonText: {
+    signupButton: {
         alignSelf: 'flex-end',
         backgroundColor: "#7ad98d",
-        paddingVertical: 2,
+        paddingVertical: 3,
         paddingHorizontal: 20,
         borderRadius: 10,
         marginTop: 15,
     },
+    signupButtonText: {
+        color: '#000',
+        fontSize: 16,
+    },
     finalButton: {
+        marginTop: -20,
+        marginBottom: 60,
         alignSelf: 'flex-end',
-        marginRight: 10,
+        marginRight: 50,
     },
     signupText: {
         color: '#000',

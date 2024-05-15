@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     loginButton: {
         alignSelf: 'flex-end',
         backgroundColor: "#7ad98d",
-        paddingVertical: 2,
+        paddingVertical: 3,
         paddingHorizontal: 20,
         borderRadius: 10,
         marginTop: 15,
