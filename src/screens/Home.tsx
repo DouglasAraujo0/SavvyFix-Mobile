@@ -19,6 +19,7 @@ export default function Home() {
     }   
     
     return (
+      <ScrollView contentContainerStyle={{paddingBottom: 60}}>
         <View style={styles.container}>
           <TouchableOpacity onPress={sobre}>
             <View style={styles.aboutContainer}>
@@ -62,8 +63,9 @@ export default function Home() {
               </View>
             </View>
             </TouchableOpacity>
-          </ScrollView>
+          
         </View>
+        </ScrollView>
   );
 }
 
@@ -82,8 +84,8 @@ const styles = StyleSheet.create({
     marginVertical: 20, 
     alignItems: 'center',
     width: '100%',
-    flexDirection: 'row', // Alterado para flex direction row
-    justifyContent: 'space-between', // Adicionado
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   aboutText: {
     fontSize: 18,
