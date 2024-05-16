@@ -22,7 +22,7 @@ export default function Sobre() {
                 <View style={styles.section1}>
                     <View style={styles.imageWithText}>
                         <Image
-                            source={require('../../assets/twitter.png')}
+                            source={require('../../assets/twitter.jpg')}
                             style={styles.image}
                         />
                         <Text style={styles.subText}>Mas não se engane! Esse site de tênis é totalmente fictício e tem o objetivo apenas de demonstrar a solução da SavvyFix na prática.</Text>

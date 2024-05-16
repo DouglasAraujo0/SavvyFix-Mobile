@@ -31,7 +31,7 @@ export default function Home() {
             <View style={styles.optionContainer}>
               <View style={styles.square}>
                 <Image
-                  source={require('../../assets/twitter.png')}
+                  source={require('../../assets/twitter.jpg')}
                   style={styles.imageInside}            
                 />
                 <Text style={styles.optionName}>Tênis Casual</Text>
@@ -43,7 +43,7 @@ export default function Home() {
             <View style={styles.optionContainer}>
               <View style={styles.square}>
                 <Image
-                  source={require('../../assets/twitter.png')}
+                  source={require('../../assets/twitter.jpg')}
                   style={styles.imageInside}            
                 />
                 <Text style={styles.optionName}>Tênis Esportivo</Text>
@@ -55,7 +55,7 @@ export default function Home() {
             <View style={styles.optionContainer}>
               <View style={styles.square}>
                 <Image
-                  source={require('../../assets/twitter.png')}
+                  source={require('../../assets/twitter.jpg')}
                   style={styles.imageInside}            
                 />
                 <Text style={styles.optionName}>Outros Tipos</Text>

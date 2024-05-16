@@ -26,20 +26,20 @@ export default function Header() {
         />
         <TouchableOpacity style={styles.touchableArea} onPress={home}>
           <Image
-            source={require('../../assets/twitter.png')}
+            source={require('../../assets/twitter.jpg')}
             style={styles.rightImage}
           />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.touchableArea} onPress={carrinho}>
           <Image
-            source={require('../../assets/twitter.png')}
+            source={require('../../assets/twitter.jpg')}
             style={styles.rightImage}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.touchableArea} onPress={login}>
           <Image
-            source={require('../../assets/twitter.png')}
+            source={require('../../assets/twitter.jpg')}
             style={styles.rightImage}
           />
         </TouchableOpacity>
