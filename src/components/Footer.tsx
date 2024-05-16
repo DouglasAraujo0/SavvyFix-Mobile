@@ -9,15 +9,15 @@ export default function Footer() {
       </View>
       <View style={styles.rightImagesContainer}>
         <Image
-          source={require('../../assets/github.png')}
+          source={require('../../assets/github.jpg')}
           style={styles.image}
         />
         <Image
-          source={require('../../assets/instagram.png')}
+          source={require('../../assets/insta.jpeg')}
           style={styles.image}
         />
         <Image
-          source={require('../../assets/twitter.png')}
+          source={require('../../assets/twitter.jpg')}
           style={styles.image}
         />
       </View>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+    backgroundColor: '#3F7E00',
     width: '100%',
     paddingHorizontal: 20,
     paddingVertical: 20,

@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         marginBottom: 20,
-        backgroundColor: 'gray',
+        backgroundColor: '#D7CCB5',
         borderRadius: 10,
         padding: 7,
         width: '60%',
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         marginTop: 15,
         marginBottom: 20,
-        backgroundColor: 'gray',
+        backgroundColor: '#D9D9D9',
         padding: 20,
         width: '100%',
     },
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     },
     signupButton: {
         alignSelf: 'flex-end',
-        backgroundColor: "#7ad98d",
+        backgroundColor: "#98DA9E",
         paddingVertical: 3,
         paddingHorizontal: 20,
         borderRadius: 10,

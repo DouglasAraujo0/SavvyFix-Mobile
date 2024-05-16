@@ -14,7 +14,7 @@ export default function HeaderLoginCadastro() {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 20,
-        backgroundColor: 'green',
+        backgroundColor: '#3F7E00',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',

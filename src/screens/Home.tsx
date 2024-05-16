@@ -27,7 +27,6 @@ export default function Home() {
             </View>
           </TouchableOpacity>
 
-          <ScrollView>
           <TouchableOpacity onPress={casual}>
             <View style={styles.optionContainer}>
               <View style={styles.square}>
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   aboutContainer: {
-    backgroundColor: 'gray',
+    backgroundColor: '#D7CCB5',
     paddingHorizontal: 20,
     paddingVertical: 10, 
     marginVertical: 20, 
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
   square: {
     width: 200,
     height: 160,
-    backgroundColor: 'green',
+    backgroundColor: '#3F7E00',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
   },
   optionName: {
     marginTop: 5,
-    backgroundColor: 'yellow',
+    backgroundColor: '#D7CCB5',
     padding: 17,
     width: 200,
     textAlign: 'center',

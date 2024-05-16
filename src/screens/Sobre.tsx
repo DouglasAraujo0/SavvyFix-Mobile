@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     section1: {
-        backgroundColor: 'grey',
+        backgroundColor: '#D9D9D9',
     },
     title: {
         fontSize: 24,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
     button: {
-        backgroundColor: '#a6a6a6',
+        backgroundColor: '#D7CCB5',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 10,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     },
     aboutContainer: {
         width: '100%',
-        backgroundColor: 'gray',
+        backgroundColor: '#D7CCB5',
         paddingVertical: 10,
         marginVertical: 20,
         alignItems: 'center',
