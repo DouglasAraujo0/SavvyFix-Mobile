@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HeaderLoginCadastro from "../components/HeaderLoginCadastro";
-import { firebase } from "../services/FirebaseConfig"; 
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
     const navigation = useNavigation();
@@ -11,22 +11,28 @@ export default function Login() {
         navigation.navigate('Cadastro');
     };
     
-    const [cpf, setCPF] = useState('');
+    const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [loginError, setLoginError] = useState('');
     const [showSuccessButton, setShowSuccessButton] = useState(false);
     const [showErrorButton, setShowErrorButton] = useState(false);
 
-    const handleLogin = async () => {
-        try {
-            const response = await firebase.auth().signInWithEmailAndPassword(cpf, senha);
-            setShowSuccessButton(true);
-        } catch (error) {
-            setShowErrorButton(true);
-        }
+    const handleLogin = () => {
+        const auth = getAuth();
+        signInWithEmailAndPassword(auth, email, senha)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                setShowSuccessButton(true);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setShowErrorButton(true);
+            });
     };
 
     return (
+        <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         <View style={styles.container}>
             <HeaderLoginCadastro/>
             <View style={styles.formContainer}>
@@ -35,12 +41,11 @@ export default function Login() {
                 </View>
 
                 <View style={styles.inputContainer}>
-                    <Text style={styles.inputLabel}>CPF</Text>
+                    <Text style={styles.inputLabel}>Email</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Digite seu CPF"
-                        keyboardType="numeric"
-                        onChangeText={(text) => setCPF(text)}
+                        placeholder="Digite seu Email"
+                        onChangeText={(text) => setEmail(text)}
                     />
                     <Text style={styles.inputLabel}>Senha</Text>
                     <TextInput
@@ -49,7 +54,7 @@ export default function Login() {
                         secureTextEntry={true}
                         onChangeText={(text) => setSenha(text)}
                     />
-                    <TouchableOpacity style={styles.loginButton} onPress={() => alert('Cadastrado com sucesso!')}>
+                    <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
                         <Text style={styles.loginButtonText}>Entrar</Text>
                     </TouchableOpacity>
                 </View>
@@ -75,10 +80,15 @@ export default function Login() {
                 )}
             </View>
         </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
+    scrollViewContainer: {
+        flexGrow: 1,
+        paddingBottom: 200
+    },
     container: {
         paddingTop: 30,
         alignItems: 'center',
@@ -112,6 +122,7 @@ const styles = StyleSheet.create({
     inputLabel: {
         fontSize: 16,
         marginBottom: 5,
+        marginLeft: 10,  
     },
     input: {
         backgroundColor: '#fff',

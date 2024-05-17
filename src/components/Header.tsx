@@ -1,9 +1,11 @@
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
+import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useCart } from '../context/useCart';
 
 export default function Header() {
   const navigation = useNavigation();
+  const { cartCount } = useCart();
 
   const carrinho = () => {
     navigation.navigate('Carrinho');
@@ -16,7 +18,7 @@ export default function Header() {
   const login = () => {
     navigation.navigate('Login');
   };
-  
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -32,10 +34,17 @@ export default function Header() {
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.touchableArea} onPress={carrinho}>
-            <Image
-              source={require('../../assets/icons8-shopping-cart-90.png')}
-              style={styles.rightImage}
-            />
+            <View style={styles.cartContainer}>
+              <Image
+                source={require('../../assets/icons8-shopping-cart-90.png')}
+                style={styles.rightImage}
+              />
+              {cartCount > 0 && (
+                <View style={styles.badge}>
+                  <Text style={styles.badgeText}>{cartCount}</Text>
+                </View>
+              )}
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.touchableArea} onPress={login}>
             <Image
@@ -78,5 +87,23 @@ const styles = StyleSheet.create({
   rightImage: {
     width: 45,
     height: 45,
+  },
+  cartContainer: {
+    position: 'relative',
+  },
+  badge: {
+    position: 'absolute',
+    top: -5,
+    right: -5,
+    backgroundColor: 'red',
+    borderRadius: 10,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  badgeText: {
+    color: 'white',
+    fontSize: 12,
   },
 });

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useCart } from '../context/useCart';
 
 export default function Casual() {
     
-    const navigation = useNavigation();
+    const navigation = useNavigation();    
+    const { addToCart } = useCart();
+    const [cartItemCount, setCartItemCount] = useState(0);
 
     const sobre = () => {
         navigation.navigate('Sobre');
@@ -12,6 +15,11 @@ export default function Casual() {
     const home = () => {
         navigation.navigate('Home');
     }
+
+    const addItemToCart = (item) => {
+        addToCart(item);
+        setCartItemCount(cartItemCount + 1);
+    };
 
     const sneakers = [
         { id: 1, name: 'Tênis 1', price: 'R$199,99', image: require('../../assets/twitter.jpg') },
@@ -44,7 +52,7 @@ export default function Casual() {
                                     <Text style={styles.sneakerOriginalPrice}>{sneaker.originalPrice}</Text>
                                 )}
                                 <View style={styles.buttonsContainer}>
-                                    <TouchableOpacity style={styles.button}>
+                                    <TouchableOpacity style={styles.button} onPress={() => addItemToCart(sneaker)}>
                                         <Text style={styles.buttonText}>Adicionar</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity style={styles.button}>

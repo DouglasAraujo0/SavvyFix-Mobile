@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useCart } from '../context/useCart';
 
 export default function Carrinho() {
+
     const navigation = useNavigation();
+    const {cartItems} = useCart();
 
     const sobre = () => {
         navigation.navigate('Sobre');
@@ -23,6 +26,9 @@ export default function Carrinho() {
         
             <View style={styles.aboutContainerCarrinho}>
                 <Text style={styles.aboutText}>Carrinho</Text>
+                {cartItems.map((item, index) => (
+                    <Text key={index}>{item.name} - {item.price}</Text>
+                ))}
             </View>
 
             <TouchableOpacity onPress={home}>
