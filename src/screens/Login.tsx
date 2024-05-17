@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet, Button, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HeaderLoginCadastro from "../components/HeaderLoginCadastro";
+import { firebase } from "../services/FirebaseConfig"; 
 
 export default function Login() {
     const navigation = useNavigation();
 
     const cadastro = () => {
         navigation.navigate('Cadastro');
+    };
+    
+    const [cpf, setCPF] = useState('');
+    const [senha, setSenha] = useState('');
+    const [loginError, setLoginError] = useState('');
+    const [showSuccessButton, setShowSuccessButton] = useState(false);
+    const [showErrorButton, setShowErrorButton] = useState(false);
+
+    const handleLogin = async () => {
+        try {
+            const response = await firebase.auth().signInWithEmailAndPassword(cpf, senha);
+            setShowSuccessButton(true);
+        } catch (error) {
+            setShowErrorButton(true);
+        }
     };
 
     return (
@@ -24,12 +40,14 @@ export default function Login() {
                         style={styles.input}
                         placeholder="Digite seu CPF"
                         keyboardType="numeric"
+                        onChangeText={(text) => setCPF(text)}
                     />
                     <Text style={styles.inputLabel}>Senha</Text>
                     <TextInput
                         style={styles.input}
                         placeholder="Digite sua senha"
                         secureTextEntry={true}
+                        onChangeText={(text) => setSenha(text)}
                     />
                     <TouchableOpacity style={styles.loginButton} onPress={() => alert('Cadastrado com sucesso!')}>
                         <Text style={styles.loginButtonText}>Entrar</Text>
@@ -39,6 +57,22 @@ export default function Login() {
                 <TouchableOpacity onPress={cadastro} style={styles.signupButton}>
                     <Text style={styles.signupText}>Cadastre-se aqui</Text>
                 </TouchableOpacity>
+
+                {(showSuccessButton || showErrorButton) && (
+                    <View style={styles.centeredButtons}>
+                        {showSuccessButton && (
+                            <TouchableOpacity style={styles.successButton} onPress={() => setShowSuccessButton(false)}>
+                                <Text style={styles.successButtonText}>Seja bem-vindo!</Text>
+                            </TouchableOpacity>
+                        )}
+
+                        {showErrorButton && (
+                            <TouchableOpacity style={styles.errorButton} onPress={() => setShowErrorButton(false)}>
+                                <Text style={styles.errorButtonText}>CPF e/ou senha incorretos!</Text>
+                            </TouchableOpacity>
+                        )}
+                    </View>
+                )}
             </View>
         </View>
     );
@@ -109,4 +143,28 @@ const styles = StyleSheet.create({
         color: '#000',
         fontSize: 16,
     },
+    centeredButtons: {
+        alignItems: 'center',
+    },
+    successButton: {
+        backgroundColor: '#98DA9E',
+        padding: 10,
+        borderRadius: 10,
+        marginTop: 20,
+    },
+    successButtonText: {
+        color: '#000',
+        fontSize: 16,
+    },
+    errorButton: {
+        backgroundColor: '#FF6347',
+        padding: 10,
+        borderRadius: 10,
+        marginTop: 20,
+    },
+    errorButtonText: {
+        color: '#000',
+        fontSize: 16,
+    },
+    
 });

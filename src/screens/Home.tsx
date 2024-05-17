@@ -31,7 +31,7 @@ export default function Home() {
             <View style={styles.optionContainer}>
               <View style={styles.square}>
                 <Image
-                  source={require('../../assets/twitter.jpg')}
+                  source={require('../../assets/casual.jpeg')}
                   style={styles.imageInside}            
                 />
                 <Text style={styles.optionName}>Tênis Casual</Text>
@@ -43,7 +43,7 @@ export default function Home() {
             <View style={styles.optionContainer}>
               <View style={styles.square}>
                 <Image
-                  source={require('../../assets/twitter.jpg')}
+                  source={require('../../assets/esportivo.jpeg')}
                   style={styles.imageInside}            
                 />
                 <Text style={styles.optionName}>Tênis Esportivo</Text>
@@ -55,7 +55,7 @@ export default function Home() {
             <View style={styles.optionContainer}>
               <View style={styles.square}>
                 <Image
-                  source={require('../../assets/twitter.jpg')}
+                  source={require('../../assets/outros.jpeg')}
                   style={styles.imageInside}            
                 />
                 <Text style={styles.optionName}>Outros Tipos</Text>
@@ -106,7 +106,6 @@ const styles = StyleSheet.create({
   imageInside: {
     width: 100,
     height: 100,
-    borderRadius: 10,
   },
   optionName: {
     marginTop: 5,

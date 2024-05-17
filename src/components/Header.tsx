@@ -26,20 +26,20 @@ export default function Header() {
         />
         <TouchableOpacity style={styles.touchableArea} onPress={home}>
           <Image
-            source={require('../../assets/twitter.jpg')}
+            source={require('../../assets/icons8-home-250.png')}
             style={styles.rightImage}
           />
         </TouchableOpacity>
         
         <TouchableOpacity style={styles.touchableArea} onPress={carrinho}>
           <Image
-            source={require('../../assets/twitter.jpg')}
+            source={require('../../assets/icons8-shopping-cart-90.png')}
             style={styles.rightImage}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.touchableArea} onPress={login}>
           <Image
-            source={require('../../assets/twitter.jpg')}
+            source={require('../../assets/icons8-team-96.png')}
             style={styles.rightImage}
           />
         </TouchableOpacity>
@@ -64,16 +64,14 @@ const styles = StyleSheet.create({
   logo: {
     width: 50,
     height: 50,
-    borderRadius: 100 / 2,
     marginRight: 20,
   },
   touchableArea: {
     marginLeft: 10,
   },
   rightImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 100 / 2,
+    width: 45,
+    height: 45,
     
   },
 });

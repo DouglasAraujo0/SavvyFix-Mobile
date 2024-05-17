@@ -13,7 +13,7 @@ export default function Footer() {
           style={styles.image}
         />
         <Image
-          source={require('../../assets/insta.jpeg')}
+          source={require('../../assets/icons8-instagram-208.png')}
           style={styles.image}
         />
         <Image
@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
-    borderRadius: 100 / 2,
-    marginHorizontal: 5,
+    marginHorizontal: 30,
+    borderRadius: 5
   },
   rightImagesContainer: {
     flexDirection: 'row',
