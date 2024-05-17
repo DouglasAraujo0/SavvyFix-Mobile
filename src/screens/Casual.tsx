@@ -20,43 +20,47 @@ export default function Casual() {
     ];
 
     return (
-        <ScrollView>
+        <ScrollView contentContainerStyle={{ paddingBottom: 150 }}>
             <TouchableOpacity onPress={sobre}>
                 <View style={styles.aboutContainer}>
                     <Text style={styles.aboutText}>Sobre a SavvyFix</Text>
                 </View>
             </TouchableOpacity>
-
-            <View style={styles.aboutContainer}>
+        
+            <View style={styles.aboutContainerCasual}>
                 <Text style={styles.aboutText}>Tênis Casual</Text>
             </View>
 
             <View style={styles.sneakersContainer}>
                 {sneakers.map(sneaker => (
                     <View key={sneaker.id} style={styles.sneakerCard}>
-                        <Image source={sneaker.image} style={styles.sneakerImage} />
-                        <Text style={styles.sneakerName}>{sneaker.name}</Text>
-                        <Text style={styles.sneakerPrice}>{sneaker.price}</Text>
-                        {sneaker.originalPrice && (
-                            <Text style={styles.sneakerOriginalPrice}>{sneaker.originalPrice}</Text>
-                        )}
-                        <View style={styles.buttonsContainer}>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.buttonText}>Adicionar</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.button}>
-                                <Text style={styles.buttonText}>Ver mais</Text>
-                            </TouchableOpacity>
-                        </View>
-
-                        <TouchableOpacity onPress={home}>
-                            <View style={styles.aboutContainer}>
-                                <Text style={styles.aboutText}>Home</Text>
+                        <View style={styles.sneakerInfoContainer}>
+                            <Image source={sneaker.image} style={styles.sneakerImage} />
+                            <View style={styles.sneakerDetails}>
+                                <Text style={styles.sneakerName}>{sneaker.name}</Text>
+                                <Text style={styles.sneakerPrice}>{sneaker.price}</Text>
+                                {sneaker.originalPrice && (
+                                    <Text style={styles.sneakerOriginalPrice}>{sneaker.originalPrice}</Text>
+                                )}
+                                <View style={styles.buttonsContainer}>
+                                    <TouchableOpacity style={styles.button}>
+                                        <Text style={styles.buttonText}>Adicionar</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.button}>
+                                        <Text style={styles.buttonText}>Ver mais</Text>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
-                        </TouchableOpacity>
+                        </View>
                     </View>
                 ))}
             </View>
+
+            <TouchableOpacity onPress={home}>
+                <View style={styles.homeContainer}>
+                    <Text style={styles.homeText}>Home</Text>
+                </View>
+            </TouchableOpacity>
         </ScrollView>
     );
 }
@@ -65,38 +69,58 @@ const styles = StyleSheet.create({
     aboutContainer: {
         backgroundColor: '#D7CCB5',
         paddingHorizontal: 20,
-        paddingVertical: 10, 
-        marginVertical: 20, 
+        paddingVertical: 10,
+        marginVertical: 20,
         alignItems: 'center',
         width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        borderRadius: 10,
+    },
+    aboutContainerCasual: {
+        backgroundColor: '#D7CCB5',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        marginVertical: 20,
+        alignItems: 'center',
+        width: '41%',
+        alignSelf: 'flex-start',
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
     },
     aboutText: {
         fontSize: 18,
         textAlign: 'center',
-        flex: 1,
     },
     sneakersContainer: {
         flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        paddingVertical: 10,
     },
     sneakerCard: {
         backgroundColor: '#4CAF50',
-        padding: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 5,
         marginVertical: 10,
-        borderRadius: 10,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
         alignItems: 'center',
         width: '90%',
+        alignSelf: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    sneakerInfoContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        alignSelf: 'flex-end',
     },
     sneakerImage: {
         width: 100,
         height: 100,
         marginBottom: 10,
+        alignSelf: 'flex-start',
+    },
+    sneakerDetails: {
+        marginLeft: 10,
+        justifyContent: 'center',
     },
     sneakerName: {
         fontSize: 16,
@@ -106,6 +130,7 @@ const styles = StyleSheet.create({
     sneakerPrice: {
         fontSize: 16,
         color: '#fff',
+        paddingBottom: 30,
     },
     sneakerOriginalPrice: {
         fontSize: 14,
@@ -114,15 +139,31 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         flexDirection: 'row',
-        marginTop: 10,
+        justifyContent: 'space-between',
+        marginLeft: 20,
     },
     button: {
         backgroundColor: '#8BC34A',
-        padding: 10,
-        borderRadius: 5,
-        marginHorizontal: 5,
+        padding: 5,
+        borderRadius: 20,
+        marginHorizontal: 8,
     },
     buttonText: {
         color: '#fff',
+    },
+    homeContainer: {
+        backgroundColor: '#D7CCB5',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        marginVertical: 20,
+        alignItems: 'center',
+        width: '41%',
+        alignSelf: 'flex-end',
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    homeText: {
+        fontSize: 18,
+        textAlign: 'center',
     },
 });
