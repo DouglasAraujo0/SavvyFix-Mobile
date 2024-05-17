@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   square: {
     width: 200,
-    height: 160,
+    height: 148,
     backgroundColor: '#3F7E00',
     justifyContent: 'center',
     alignItems: 'center',
@@ -106,6 +106,9 @@ const styles = StyleSheet.create({
   imageInside: {
     width: 100,
     height: 100,
+    marginTop: 6,
+    marginBottom: -5,
+    resizeMode: 'cover',
   },
   optionName: {
     marginTop: 5,

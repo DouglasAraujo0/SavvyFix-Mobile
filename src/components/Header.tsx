@@ -24,34 +24,35 @@ export default function Header() {
           source={require('../../assets/SavvyFix2.png')}
           style={styles.logo}
         />
-        <TouchableOpacity style={styles.touchableArea} onPress={home}>
-          <Image
-            source={require('../../assets/icons8-home-250.png')}
-            style={styles.rightImage}
-          />
-        </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.touchableArea} onPress={carrinho}>
-          <Image
-            source={require('../../assets/icons8-shopping-cart-90.png')}
-            style={styles.rightImage}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.touchableArea} onPress={login}>
-          <Image
-            source={require('../../assets/icons8-team-96.png')}
-            style={styles.rightImage}
-          />
-        </TouchableOpacity>
+        <View style={styles.rightIcons}>
+          <TouchableOpacity style={styles.touchableArea} onPress={home}>
+            <Image
+              source={require('../../assets/icons8-home-250.png')}
+              style={styles.rightImage}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchableArea} onPress={carrinho}>
+            <Image
+              source={require('../../assets/icons8-shopping-cart-90.png')}
+              style={styles.rightImage}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.touchableArea} onPress={login}>
+            <Image
+              source={require('../../assets/icons8-team-96.png')}
+              style={styles.rightImage}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        paddingTop: 20,
-      },
+  container: {
+    paddingTop: 20,
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -66,12 +67,16 @@ const styles = StyleSheet.create({
     height: 50,
     marginRight: 20,
   },
+  rightIcons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   touchableArea: {
     marginLeft: 10,
+    paddingRight: 10,
   },
   rightImage: {
     width: 45,
     height: 45,
-    
   },
 });
