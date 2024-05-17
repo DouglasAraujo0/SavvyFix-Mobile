@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 import { useNavigation } from '@react-navigation/native';
 
 export default function Casual() {
+    
     const navigation = useNavigation();
 
     const sobre = () => {

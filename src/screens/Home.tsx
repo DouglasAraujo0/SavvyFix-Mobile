@@ -19,7 +19,7 @@ export default function Home() {
     }   
     
     return (
-      <ScrollView contentContainerStyle={{paddingBottom: 60}}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 150 }}>
         <View style={styles.container}>
           <TouchableOpacity onPress={sobre}>
             <View style={styles.aboutContainer}>
@@ -71,7 +71,6 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingTop: 5,
