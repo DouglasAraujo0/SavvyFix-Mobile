@@ -35,6 +35,9 @@ export default function Carrinho() {
         removeFromCart(item);
     };
 
+    // Calcular o total da compra
+    const total = cartItems.reduce((acc, item) => acc + (parseFloat(item.price.replace('R$', '').replace(',', '.')) * item.quantity), 0);
+
     return (
         <ScrollView contentContainerStyle={{ paddingBottom: 150 }}>
             <TouchableOpacity onPress={sobre}>
@@ -47,30 +50,36 @@ export default function Carrinho() {
                 <Text style={styles.aboutText}>Carrinho</Text>
             </View>
 
-            {cartItems.length > 0 ? (
-                <View style={styles.sneakersContainer}>
-                    {cartItems.map((item, index) => (
-                        <View key={index} style={styles.sneakerCard}>
-                        <Image source={item.image} style={styles.sneakerImage} />
-                        <View style={styles.sneakerDetails}>
-                            <Text style={styles.sneakerName}>{item.name}</Text>
-                            <Text style={styles.sneakerPrice}>{item.price}</Text>
-                            <Text style={styles.quantityText}>{item.quantity.toString()}</Text>
+            <View style={styles.sneakersContainer}>
+                {cartItems.length > 0 ? (
+                    <>
+                        {cartItems.map((item, index) => (
+                            <View key={index} style={styles.sneakerCard}>
+                                <Image source={item.image} style={styles.sneakerImage} />
+                                <View style={styles.sneakerDetails}>
+                                    <Text style={styles.sneakerName}>{item.name}</Text>
+                                    <Text style={styles.sneakerPrice}>{item.price}</Text>
+                                    <Text style={styles.quantityText}>{item.quantity.toString()}</Text>
+                                </View>
+                                <View style={styles.bottomButtonsContainer}>
+                                    <TouchableOpacity style={[styles.button, styles.removeButton]} onPress={() => removeItemFromCart(item)}>
+                                        <Text style={styles.buttonText}>Excluir</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={[styles.button, styles.viewDetailsButton]} onPress={viewDetails}>
+                                        <Text style={styles.buttonText}>Ver Mais</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        ))}
+                        {/* Exibir o total da compra */}
+                        <View style={styles.totalContainer}>
+                            <Text style={styles.totalText}>Total da compra: R${total.toFixed(2)}</Text>
                         </View>
-                        <View style={styles.bottomButtonsContainer}>
-                            <TouchableOpacity style={[styles.button, styles.removeButton]} onPress={() => removeItemFromCart(item)}>
-                                <Text style={styles.buttonText}>Excluir</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={[styles.button, styles.viewDetailsButton]} onPress={viewDetails}>
-                                <Text style={styles.buttonText}>Ver Mais</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                    ))}
-                </View>
-            ) : (
-                <Text style={styles.emptyCartText}>Seu carrinho está vazio.</Text>
-            )}
+                    </>
+                ) : (
+                    <Text style={styles.emptyCartText}>Seu carrinho está vazio.</Text>
+                )}
+            </View>
 
             <TouchableOpacity onPress={home}>
                 <View style={styles.homeContainer}>
@@ -197,5 +206,15 @@ const styles = StyleSheet.create({
     },
     quantityText: {
         backgroundColor: '#D7CCB5',
-    }
+    },
+    totalContainer: {
+        backgroundColor: '#fff',
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        alignItems: 'flex-end',
+    },
+    totalText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
 });
