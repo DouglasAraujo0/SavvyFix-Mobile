@@ -14,10 +14,10 @@ export default function Esportivo() {
     }
 
     const sneakers = [
-        { id: 1, name: 'Tênis 1', price: 'R$199,99', image: require('../../assets/twitter.jpg') },
-        { id: 2, name: 'Tênis 2', price: 'R$269,58', originalPrice: 'R$379,99', image: require('../../assets/twitter.jpg') },
-        { id: 3, name: 'Tênis 3', price: 'R$89,99', image: require('../../assets/twitter.jpg') },
-        { id: 4, name: 'Tênis 4', price: 'R$304,97', originalPrice: 'R$329,99', image: require('../../assets/twitter.jpg') },
+        { id: 1, name: 'Fast', price: 'R$499,78', originalPrice: 'R$549,99', image: require('../../assets/esportivo1.jpeg') },
+        { id: 2, name: 'Light Bound', price: 'R$279,99', image: require('../../assets/Esportivo2.jpeg') },
+        { id: 3, name: 'Kolosh', price: 'R$205,99', originalPrice: 'R$250,60' ,image: require('../../assets/esportivo3.jpeg') },
+        { id: 4, name: 'Adidas black and white', price: 'R$304,97', originalPrice: 'R$319,99', image: require('../../assets/esportivo4.jpeg') },
     ];
     
     return (
@@ -97,12 +97,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     sneakerCard: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: '#3F7E00',
         paddingHorizontal: 10,
         paddingVertical: 5,
         marginVertical: 10,
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10,
         alignItems: 'center',
         width: '90%',
         alignSelf: 'flex-start',
@@ -119,6 +117,7 @@ const styles = StyleSheet.create({
         height: 100,
         marginBottom: 10,
         alignSelf: 'flex-start',
+        marginTop: 10,
     },
     sneakerDetails: {
         marginLeft: 10,
@@ -135,23 +134,28 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
     },
     sneakerOriginalPrice: {
-        fontSize: 14,
+        fontSize: 13,
         color: '#FFD700',
         textDecorationLine: 'line-through',
+        marginTop: -25,
+        marginBottom: 20,
+        marginLeft: 40,
     },
     buttonsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginLeft: 20,
+        marginLeft: 60,
     },
     button: {
-        backgroundColor: '#8BC34A',
-        padding: 5,
+        backgroundColor: '#D7CCB5',
+        paddingVertical: 0,
+        paddingHorizontal: 10,
         borderRadius: 20,
-        marginHorizontal: 8,
+        marginLeft: 2,
+        marginHorizontal: 5,
     },
     buttonText: {
-        color: '#fff',
+        color: '#000',
     },
     homeContainer: {
         backgroundColor: '#D7CCB5',
@@ -159,7 +163,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         marginVertical: 20,
         alignItems: 'center',
-        width: '41%',
+        width: '30%',
         alignSelf: 'flex-end',
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,

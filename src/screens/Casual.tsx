@@ -22,10 +22,10 @@ export default function Casual() {
     };
 
     const sneakers = [
-        { id: 1, name: 'Tênis 1', price: 'R$199,99', image: require('../../assets/twitter.jpg') },
-        { id: 2, name: 'Tênis 2', price: 'R$269,58', originalPrice: 'R$379,99', image: require('../../assets/twitter.jpg') },
-        { id: 3, name: 'Tênis 3', price: 'R$89,99', image: require('../../assets/twitter.jpg') },
-        { id: 4, name: 'Tênis 4', price: 'R$304,97', originalPrice: 'R$329,99', image: require('../../assets/twitter.jpg') },
+        { id: 1, name: 'Viseno', price: 'R$199,99', image: require('../../assets/casual1.jpeg') },
+        { id: 2, name: 'BY JACK', price: 'R$269,58', originalPrice: 'R$379,99', image: require('../../assets/casual2.jpeg') },
+        { id: 3, name: 'Multitare', price: 'R$89,99', image: require('../../assets/casual3.jpeg') },
+        { id: 4, name: 'Nobuk', price: 'R$304,97', originalPrice: 'R$329,99', image: require('../../assets/casual4.jpeg') },
     ];
 
     return (
@@ -104,12 +104,10 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     sneakerCard: {
-        backgroundColor: '#4CAF50',
+        backgroundColor: '#3F7E00',
         paddingHorizontal: 10,
         paddingVertical: 5,
         marginVertical: 10,
-        borderTopRightRadius: 10,
-        borderBottomRightRadius: 10,
         alignItems: 'center',
         width: '90%',
         alignSelf: 'flex-start',
@@ -126,6 +124,7 @@ const styles = StyleSheet.create({
         height: 100,
         marginBottom: 10,
         alignSelf: 'flex-start',
+        marginTop: 10,
     },
     sneakerDetails: {
         marginLeft: 10,
@@ -142,23 +141,28 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
     },
     sneakerOriginalPrice: {
-        fontSize: 14,
+        fontSize: 13,
         color: '#FFD700',
         textDecorationLine: 'line-through',
+        marginTop: -25,
+        marginBottom: 20,
+        marginLeft: 40,
     },
     buttonsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginLeft: 20,
+        marginLeft: 60,
     },
     button: {
-        backgroundColor: '#8BC34A',
-        padding: 5,
+        backgroundColor: '#D7CCB5',
+        paddingVertical: 0,
+        paddingHorizontal: 10,
         borderRadius: 20,
-        marginHorizontal: 8,
+        marginLeft: 2,
+        marginHorizontal: 5,
     },
     buttonText: {
-        color: '#fff',
+        color: '#000',
     },
     homeContainer: {
         backgroundColor: '#D7CCB5',
