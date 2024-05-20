@@ -13,13 +13,14 @@ import Outros from './src/screens/Outros';
 import Cadastro from './src/screens/Cadastro';
 import HeaderLoginCadastro from './src/components/HeaderLoginCadastro';
 import { CartProvider } from './src/context/useCart';
+import Error404 from './src/screens/Error404';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <CartProvider>
-      <NavigationContainer>
+      <NavigationContainer fallback={<Error404/>}>
         <Stack.Navigator>
           <Stack.Screen name="Home" component={Home} options={{ header: () => <Header /> }} />
           <Stack.Screen name="Carrinho" component={Carrinho} options={{ header: () => <Header /> }} />

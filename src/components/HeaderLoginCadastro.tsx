@@ -1,25 +1,26 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, StatusBar, SafeAreaView } from "react-native";
 
 export default function HeaderLoginCadastro() {
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
+            <StatusBar backgroundColor="#3F7E00" barStyle="light-content"/>
             <Image
                 source={require('../../assets/SavvyFix2.png')}
                 style={styles.logo}
             />
-        </View>
-    )
+        </SafeAreaView>
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 20,
         backgroundColor: '#3F7E00',
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 30,
+        marginTop: -30
     },
     logo: {
         width: 65,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, Image, TouchableOpacity, Text, StyleSheet, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCart } from '../context/useCart';
 
@@ -21,6 +21,7 @@ export default function Header() {
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#3F7E00" />
       <View style={styles.header}>
         <Image
           source={require('../../assets/SavvyFix2.png')}
@@ -60,7 +61,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 20,
+    backgroundColor: '#3F7E00',
   },
   header: {
     flexDirection: 'row',

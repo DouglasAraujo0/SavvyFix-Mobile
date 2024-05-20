@@ -44,13 +44,11 @@ export default function Login() {
                     <Text style={styles.inputLabel}>Email</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Digite seu Email"
                         onChangeText={(text) => setEmail(text)}
                     />
                     <Text style={styles.inputLabel}>Senha</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="Digite sua senha"
                         secureTextEntry={true}
                         onChangeText={(text) => setSenha(text)}
                     />

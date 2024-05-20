@@ -1,6 +1,8 @@
 import React from "react";
-import { Image, View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import { Image, View, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+
+const { width } = Dimensions.get('window');
 
 export default function Sobre() {
     const navigation = useNavigation();
@@ -8,12 +10,15 @@ export default function Sobre() {
     const sobre = () => {
         navigation.navigate('Sobre');
     }
+
     return (
-        <ScrollView contentContainerStyle={{ paddingBottom: 60 }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 130 }}>
             <View style={styles.container}>
-                <TouchableOpacity onPress={sobre} style={styles.aboutContainer}>
-                    <Text style={styles.aboutText}>Sobre a SavvyFix</Text>
-                </TouchableOpacity>
+                <View style={styles.fullWidthContainer}>
+                    <TouchableOpacity onPress={sobre} style={styles.aboutContainer}>
+                        <Text style={styles.aboutText}>Sobre a SavvyFix</Text>
+                    </TouchableOpacity>
+                </View>
 
                 <View style={styles.section}>
                     <Text style={styles.text}>A SavvyFix traz a solução para empresas que vendem produtos on-line se adaptarem em um mundo tão flexível!</Text>
@@ -22,10 +27,13 @@ export default function Sobre() {
                 <View style={styles.section1}>
                     <View style={styles.imageWithText}>
                         <Image
-                            source={require('../../assets/twitter.jpg')}
+                            source={require('../../assets/money.jpeg')}
                             style={styles.image}
                         />
-                        <Text style={styles.subText}>Mas não se engane! Esse site de tênis é totalmente fictício e tem o objetivo apenas de demonstrar a solução da SavvyFix na prática.</Text>
+                        <Text style={styles.subText}>
+                            Mas não se engane! Esse site de tênis é totalmente fictício e tem o objetivo apenas de
+                            demonstrar a solução da SavvyFix na prática.
+                        </Text>
                     </View>
                 </View>
 
@@ -56,11 +64,16 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: '#fff',
     },
+    fullWidthContainer: {
+        width: width,
+        marginLeft: -20,
+    },
     section: {
         marginBottom: 20,
     },
     section1: {
         backgroundColor: '#D9D9D9',
+        marginHorizontal: -20,
     },
     title: {
         fontSize: 24,
@@ -80,12 +93,12 @@ const styles = StyleSheet.create({
         fontSize: 14,
         textAlign: 'left',
         marginLeft: 10,
-        marginTop: 10,
+        maxWidth: 300,
     },
     image: {
-        width: 100,
+        width: 125,
         height: 100,
-        borderRadius: 10,
+        marginLeft: 123,
     },
     itemText: {
         fontSize: 16,
@@ -123,11 +136,12 @@ const styles = StyleSheet.create({
     imageWithText: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 20,
+        justifyContent: 'flex-end',
+        marginLeft: 110,
+
     },
     sentido: {
-        padding: 30,
+        padding: 33,
         textAlign: 'left',
         maxHeight: 232,
     },
