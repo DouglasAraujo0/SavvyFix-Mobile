@@ -5,7 +5,7 @@ import { useCart } from '../context/useCart';
 
 export default function Carrinho() {
     const navigation = useNavigation();
-    const { cartItems, addToCart } = useCart();
+    const { cartItems, addToCart, removeFromCart } = useCart();
 
     const sobre = () => {
         navigation.navigate('Sobre');
@@ -16,11 +16,23 @@ export default function Carrinho() {
     };
 
     const incrementItemCount = (item) => {
-        addToCart(item);
+        const existingItemIndex = cartItems.findIndex((cartItem) => cartItem.id === item.id);
+
+        if (existingItemIndex !== -1) {
+            const updatedCartItems = [...cartItems];
+            updatedCartItems[existingItemIndex].quantity += 1;
+            addToCart(updatedCartItems[existingItemIndex]);
+        } else {
+            addToCart({ ...item, quantity: 1 });
+        }
     };
 
     const viewDetails = () => {
-        // Aqui você pode implementar a lógica para ver mais detalhes do item
+        // Lógica para ver mais detalhes do item
+    };
+
+    const removeItemFromCart = (item) => {
+        removeFromCart(item);
     };
 
     return (
@@ -39,23 +51,21 @@ export default function Carrinho() {
                 <View style={styles.sneakersContainer}>
                     {cartItems.map((item, index) => (
                         <View key={index} style={styles.sneakerCard}>
-                            <Image source={item.image} style={styles.sneakerImage} />
-                            <View style={styles.sneakerDetails}>
-                                <Text style={styles.sneakerName}>{item.name}</Text>
-                                <Text style={styles.sneakerPrice}>{item.price}</Text>
-                            </View>
-                            <View style={styles.bottomButtonsContainer}>
-                                <TouchableOpacity style={[styles.button, styles.addToCartButton]} onPress={() => incrementItemCount(item)}>
-                                    <Text style={styles.buttonText}>pau</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={[styles.button, styles.addToCartButton]} onPress={() => incrementItemCount(item)}>
-                                    <Text style={styles.buttonText}>Adicionar</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={[styles.button, styles.viewDetailsButton]} onPress={viewDetails}>
-                                    <Text style={styles.buttonText}>Ver Mais</Text>
-                                </TouchableOpacity>
-                            </View>
+                        <Image source={item.image} style={styles.sneakerImage} />
+                        <View style={styles.sneakerDetails}>
+                            <Text style={styles.sneakerName}>{item.name}</Text>
+                            <Text style={styles.sneakerPrice}>{item.price}</Text>
+                            <Text style={styles.quantityText}>{item.quantity.toString()}</Text>
                         </View>
+                        <View style={styles.bottomButtonsContainer}>
+                            <TouchableOpacity style={[styles.button, styles.removeButton]} onPress={() => removeItemFromCart(item)}>
+                                <Text style={styles.buttonText}>Excluir</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={[styles.button, styles.viewDetailsButton]} onPress={viewDetails}>
+                                <Text style={styles.buttonText}>Ver Mais</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                     ))}
                 </View>
             ) : (
@@ -95,6 +105,9 @@ const styles = StyleSheet.create({
     aboutText: {
         fontSize: 18,
         textAlign: 'center',
+    },
+    additionalButton: {
+        backgroundColor: '#D7CCB5',
     },
     sneakersContainer: {
         flex: 1,
@@ -139,7 +152,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignSelf: 'flex-end',
         justifyContent: 'flex-start',
-        marginLeft: -150
+        marginLeft: -190,
     },
     button: {
         paddingVertical: 0,
@@ -176,7 +189,13 @@ const styles = StyleSheet.create({
     addToCartButton: {
         backgroundColor: '#D7CCB5',
     },
+    removeButton: {
+        backgroundColor: '#D7CCB5',
+    },
     viewDetailsButton: {
         backgroundColor: '#D7CCB5',
     },
+    quantityText: {
+        backgroundColor: '#D7CCB5',
+    }
 });

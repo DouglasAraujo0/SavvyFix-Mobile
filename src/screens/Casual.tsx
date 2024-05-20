@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCart } from '../context/useCart';
 
 export default function Casual() {
-    
-    const navigation = useNavigation();    
-    const { addToCart } = useCart();
-    const [cartItemCount, setCartItemCount] = useState(0);
+    const navigation = useNavigation();
+    const { cartItems, addToCart } = useCart();
 
     const sobre = () => {
         navigation.navigate('Sobre');
-    }
+    };
+
     const home = () => {
         navigation.navigate('Home');
-    }
-
-    const addItemToCart = (item) => {
-        addToCart(item);
-        setCartItemCount(cartItemCount + 1);
     };
+
+        const addItemToCart = (item) => {
+            const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+            if (existingItem) {
+                addToCart({ ...item, quantity: existingItem.quantity + 1 }); // Ajuste aqui para 'quantity'
+            } else {
+                addToCart({ ...item, quantity: 1 }); // Ajuste aqui para 'quantity'
+            }
+        };
+
+        const viewDetails = () => {
+            // Função para visualizar detalhes do item
+        };
+    
 
     const sneakers = [
         { id: 1, name: 'Viseno', price: 'R$199,99', image: require('../../assets/casual1.jpeg') },
@@ -35,7 +43,7 @@ export default function Casual() {
                     <Text style={styles.aboutText}>Sobre a SavvyFix</Text>
                 </View>
             </TouchableOpacity>
-        
+
             <View style={styles.aboutContainerCasual}>
                 <Text style={styles.aboutText}>Tênis Casual</Text>
             </View>
@@ -55,7 +63,7 @@ export default function Casual() {
                                     <TouchableOpacity style={styles.button} onPress={() => addItemToCart(sneaker)}>
                                         <Text style={styles.buttonText}>Adicionar</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={styles.button}>
+                                    <TouchableOpacity style={styles.button} onPress={viewDetails}>
                                         <Text style={styles.buttonText}>Ver mais</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -151,7 +159,7 @@ const styles = StyleSheet.create({
     buttonsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginLeft: 60,
+        marginLeft: 25,
     },
     button: {
         backgroundColor: '#D7CCB5',

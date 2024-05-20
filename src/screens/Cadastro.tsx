@@ -352,6 +352,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center',
         marginBottom: -20,
-        marginRight: 60,
+        marginRight: -20,
     },
 });

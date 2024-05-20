@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet, StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useCart } from '../context/useCart';
@@ -6,6 +6,11 @@ import { useCart } from '../context/useCart';
 export default function Header() {
   const navigation = useNavigation();
   const { cartCount } = useCart();
+  const [localCartCount, setLocalCartCount] = useState(0);
+
+  useEffect(() => {
+    setLocalCartCount(cartCount);
+  }, [cartCount]);
 
   const carrinho = () => {
     navigation.navigate('Carrinho');
@@ -40,9 +45,9 @@ export default function Header() {
                 source={require('../../assets/icons8-shopping-cart-90.png')}
                 style={styles.rightImage}
               />
-              {cartCount > 0 && (
+              {localCartCount > 0 && (
                 <View style={styles.badge}>
-                  <Text style={styles.badgeText}>{cartCount}</Text>
+                  <Text style={styles.badgeText}>{localCartCount}</Text>
                 </View>
               )}
             </View>
@@ -70,7 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3F7E00',
     width: '100%',
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 15,
   },
   logo: {
     width: 50,
@@ -94,8 +99,8 @@ const styles = StyleSheet.create({
   },
   badge: {
     position: 'absolute',
-    top: -5,
-    right: -5,
+    top: -8,
+    right: -8,
     backgroundColor: 'red',
     borderRadius: 10,
     width: 20,
@@ -106,5 +111,6 @@ const styles = StyleSheet.create({
   badgeText: {
     color: 'white',
     fontSize: 12,
+    fontWeight: 'bold',
   },
 });
