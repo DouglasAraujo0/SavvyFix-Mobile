@@ -1,10 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useCart } from '../context/useCart';
 
 export default function Esportivo() {
 
     const navigation = useNavigation();
+    const { addToCart } = useCart();
 
     const sobre = () => {
         navigation.navigate('Sobre');
@@ -12,6 +14,14 @@ export default function Esportivo() {
     const home = () => {
         navigation.navigate('Home');
     }
+
+    const addItemToCart = (item) => {
+        addToCart({ ...item, quantity: 1 });
+    };
+
+    const viewDetails = (item) => {
+        // Lógica para visualizar os detalhes do item
+    };
 
     const sneakers = [
         { id: 1, name: 'Fast', price: 'R$499,78', originalPrice: 'R$549,99', image: require('../../assets/esportivo1.jpeg') },
@@ -44,10 +54,10 @@ export default function Esportivo() {
                                     <Text style={styles.sneakerOriginalPrice}>{sneaker.originalPrice}</Text>
                                 )}
                                 <View style={styles.buttonsContainer}>
-                                    <TouchableOpacity style={styles.button}>
+                                    <TouchableOpacity style={styles.button} onPress={() => addItemToCart(sneaker)}>
                                         <Text style={styles.buttonText}>Adicionar</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity style={styles.button}>
+                                    <TouchableOpacity style={styles.button} onPress={() => viewDetails(sneaker)}>
                                         <Text style={styles.buttonText}>Ver mais</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -163,7 +173,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         marginVertical: 20,
         alignItems: 'center',
-        width: '30%',
+        width: '35%',
         alignSelf: 'flex-end',
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,

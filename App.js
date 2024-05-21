@@ -21,7 +21,7 @@ export default function App() {
   return (
     <CartProvider>
       <NavigationContainer fallback={<Error404/>}>
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName='Login'>
           <Stack.Screen name="Home" component={Home} options={{ header: () => <Header /> }} />
           <Stack.Screen name="Carrinho" component={Carrinho} options={{ header: () => <Header /> }} />
           <Stack.Screen name="Sobre" component={Sobre} options={{ header: () => <Header /> }} />

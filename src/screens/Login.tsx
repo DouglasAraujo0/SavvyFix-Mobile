@@ -23,7 +23,9 @@ export default function Login() {
                 // Signed in 
                 const user = userCredential.user;
                 setShowSuccessButton(true);
-                navigation.navigate('Home');
+                setTimeout(() => {
+                    navigation.navigate('Home');
+                }, 1000);
             })
             .catch((error) => {
                 const errorCode = error.code;

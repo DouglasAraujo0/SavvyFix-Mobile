@@ -59,9 +59,10 @@ export default function Carrinho() {
                                 <View style={styles.sneakerDetails}>
                                     <Text style={styles.sneakerName}>{item.name}</Text>
                                     <Text style={styles.sneakerPrice}>{item.price}</Text>
-                                    <Text style={styles.quantityText}>{item.quantity.toString()}</Text>
+                                    
                                 </View>
                                 <View style={styles.bottomButtonsContainer}>
+                                    <Text style={styles.quantityText}>{item.quantity.toString()}</Text>
                                     <TouchableOpacity style={[styles.button, styles.removeButton]} onPress={() => removeItemFromCart(item)}>
                                         <Text style={styles.buttonText}>Excluir</Text>
                                     </TouchableOpacity>
@@ -71,7 +72,6 @@ export default function Carrinho() {
                                 </View>
                             </View>
                         ))}
-                        {/* Exibir o total da compra */}
                         <View style={styles.totalContainer}>
                             <Text style={styles.totalText}>Total da compra: R${total.toFixed(2)}</Text>
                         </View>
@@ -206,6 +206,9 @@ const styles = StyleSheet.create({
     },
     quantityText: {
         backgroundColor: '#D7CCB5',
+        paddingHorizontal: 15,
+        borderRadius: 20,
+        marginRight: 10,
     },
     totalContainer: {
         backgroundColor: '#fff',

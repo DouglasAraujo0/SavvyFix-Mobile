@@ -15,19 +15,18 @@ export default function Casual() {
         navigation.navigate('Home');
     };
 
-        const addItemToCart = (item) => {
-            const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
-            if (existingItem) {
-                addToCart({ ...item, quantity: existingItem.quantity + 1 }); // Ajuste aqui para 'quantity'
-            } else {
-                addToCart({ ...item, quantity: 1 }); // Ajuste aqui para 'quantity'
-            }
-        };
+    const addItemToCart = (item) => {
+        const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+        if (existingItem) {
+            addToCart({ ...item, quantity: existingItem.quantity + 1 }); 
+        } else {
+            addToCart({ ...item, quantity: 1 }); 
+        }
+    };
 
-        const viewDetails = () => {
-            // Função para visualizar detalhes do item
-        };
-    
+    const viewDetails = () => {
+        // Função para visualizar detalhes do item
+    };
 
     const sneakers = [
         { id: 1, name: 'Viseno', price: 'R$199,99', image: require('../../assets/casual1.jpeg') },
@@ -178,7 +177,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         marginVertical: 20,
         alignItems: 'center',
-        width: '41%',
+        width: '35%',
         alignSelf: 'flex-end',
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
